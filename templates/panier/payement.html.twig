@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Paiement{% endblock %}
+
+
+{% block body %}
+    <div class="fondnoir"></div>
+    <div class="box">
+        <h1>Paiement</h1>
+    </div>
+
+    <div class="payementbox">
+        <form class="payementgroup" method="post">
+                    <h1>Informations de paiement :</h1>
+                    <div class="champs">
+                        <div class="champsinputs">
+                    <label for="user" class="labeladress">Numéro de carte bleue</label>
+                    <input id="iban" class="inputtunnel" type="tel" maxlength="19" pattern="\d*" placeholder="Numéro de carte" required>
+                    <label for="user" class="labelprenom">Nom sur la carte</label>
+                    <input type="text" class="inputtunnel" oninput="this.value = this.value.toUpperCase()" placeholder="Nom du propriétaire" required>
+                        </div>
+                    <div class="champsinputs">
+                        <label for="date">Date d'expiration</label>
+                        <input type="month" class="inputdate" placeholder="Date d'expiration" required>
+                        <label for="user" class="labelnom">Cryptogramme Visuel</label>
+                        <input type="tel" class="inputccv" maxlength="3" placeholder="CCV" required>
+                    </div>
+                    </div>
+            <a class="eventsbouton" href="{{ path('app_paiement_effectue') }}">valider</a>
+                </form>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+    <script>
+        document.getElementById('iban').addEventListener('input', function (e) {
+            e.target.value = e.target.value.replace(/[^\dA-Z]/g, '').replace(/(.{4})/g, '$1 ').trim();
+        });
+    </script>
+
+    <script type="text/javascript" src="{{ asset('js/panier.js') }}"></script>
+
+{% endblock %}
+
+
+

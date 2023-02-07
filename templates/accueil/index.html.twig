@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Paris Ticket - Accueil{% endblock %}
+
+{% block body %}
+
+<div class="example-wrapper">
+    <div class="fondnoir"></div>
+    <div class="box">
+        <h1>Bienvenue sur Paris Ticket</h1>
+    </div>
+    <section class="meilleuresventes">
+        <h1 class="titreventes">MEILLEURES VENTES DE LA SEMAINE : </h1>
+        <br><br>
+        <div class="boxcard">
+                <div class="card">
+                    <img src="{{ asset("img/ziak.jpg") }}" alt="Ziak">
+                        <div class="textcard">
+                            <span class="titremanif">Ziak</span>
+                            <span class="datemanif">Le 19 janvier 2023 à 20h00</span>
+                            <span class="prixmanif">39€</span>
+                        </div>
+                        <div class="boutons">
+                            <div class="genre">concert</div>
+                            <a class=" eventsbouton" href="{{ path('manifs_show', {'id': 26}) }}">voir plus</a>
+                        </div>
+                </div>
+                <div class="card">
+                        <img src="{{ asset("img/blackadam.jpg") }}" alt="Black Adam">
+
+                            <div class="textcard">
+                                <span class="titremanif">Black Adam</span>
+                                <span class="datemanif">Le 7 décembre 2022 à 15h40</span>
+                                <span class="prixmanif">14€</span>
+                            </div>
+                            <div class="boutons">
+                                <div class="genre">cinéma</div>
+                                <a class=" eventsbouton" href="{{ path('manifs_show', {'id': 7}) }}">voir plus</a>
+                            </div>
+                </div>
+            <div class="card">
+                <img src="{{ asset("img/leschoses.jpg") }}" alt="Les Choses">
+                    <div class="textcard">
+                        <span class="titremanif">Les Choses</span>
+                        <span class="datemanif">Le 23 janvier 2023 à 13h30</span>
+                        <span class="prixmanif">15€</span>
+                    </div>
+                    <div class="boutons">
+                        <div class="genre">exposition</div>
+                        <a class=" eventsbouton" href="{{ path('manifs_show', {'id': 39}) }}">voir plus</a>
+                    </div>
+            </div>
+            <div class="card">
+                <img src="{{ asset("img/muse.jpg") }}" alt="Muse">
+                    <div class="textcard">
+                        <span class="titremanif">Muse</span>
+                        <span class="datemanif">Le 6 juin 2023 à 20h00</span>
+                        <span class="prixmanif">70€</span>
+                    </div>
+                    <div class="boutons">
+                        <div class="genre">concert</div>
+                        <a class="eventsbouton" href="{{ path('manifs_show', {'id': 24}) }}">voir plus</a>
+                    </div>
+            </div>
+        </div>
+    </section>
+</div>
+</div>
+
+{% endblock %}
+{% block js %}
+    <script type="text/javascript" src="{{ asset('js/general.js') }}"></script>
+{% endblock %}

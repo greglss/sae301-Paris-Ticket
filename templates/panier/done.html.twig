@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Paris ticket - paiement effectué{% endblock %}
+
+{% block body %}
+
+    <div class="fondnoir"></div>
+    <div class="box">
+        <h1>Merci de votre achat</h1>
+    </div>
+    <div class="box">
+        <p>Votre paiement a bien été enregistré.</p>
+    </div>
+<div class="boutons">
+    <a class="accueilbouton" href="{{ path('app_accueil') }}">Retour à l'accueil</a>
+</div>
+{% endblock %}
+{% block js %}
+    <script>
+        document.cookie="cart=[]; path=/";
+    </script>
+{% endblock %}

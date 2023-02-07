@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+{% block title %}Recherche{% endblock %}
+
+{% block body %}
+    <div class="fondnoir"></div>
+    <div class="box">
+        <h1>Résultat de votre recherche</h1>
+    </div>
+
+<div class="cardlist">
+    {% for key in search %}
+            <a href="{{ path('manifs_show', {'id': key.getId }) }}"></a>
+        <div class="card">
+            <div class="genre">{{ key.getGenre() }}</div><br/>
+            <img src="{{ asset('img/' ~ key.getAffiche()) }}" alt="Affiche de '{{ key.getTitre() }}'"/>
+            <div class="textcard">
+                <span class="titremanif">{{ key.getTitre() }}</span>
+                <span class="prixmanif">{{ key.getTarif() }} €</span>
+                <div class="boutons">
+                    <a class="eventsbouton" href="{{ path('manifs_show', {'id': key.getId}) }}">voir plus</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+</div>
+{% endblock %}
+{% block js %}
+    <script type="text/javascript" src="{{ asset('js/general.js') }}"></script>
+{% endblock %}

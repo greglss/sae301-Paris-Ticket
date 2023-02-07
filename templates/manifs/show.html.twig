@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ manifs.getTitre }}{% endblock %}
+
+{% block body %}
+
+<div class="fond" style="background-image: url({{ asset("img/#{manifs.getAffiche()}") }}")></div>
+<div class="genretitre">
+    <span id="titre" class="titrefilm">{{ manifs.getTitre() }}</span>
+    <span id="genre" class="genre">{{ manifs.genre }}</span>
+</div>
+    </div>
+<div class="image">
+    <img id="affiche" src="{{ asset("img/#{manifs.getAffiche()}") }}" alt="{{manifs.getTitre}}"/>
+</div>
+<div class="container">
+    <div class="informations">
+        <span class="titreinfo">INFORMATIONS :</span>
+        <p class="rea">{{ manifs.casting }}</p>
+        <span id="date" class="date"><strong>Date : </strong>{{ manifs.date | date('d-m-Y') }} à {{ manifs.horaire | date('H:i') }}</span>
+        <span id="lieu" class="lieu"><strong>Lieu : </strong>{{ manifs.lieu }}</span>
+    </div>
+    <div class="presentation">
+    <span class="presentationtitre">PRESENTATION :</span>
+        <span class="presentationtext">{{ manifs.description }}</span>
+        <span id="tarif">{{ manifs.tarif }} €</span>
+        <span class="presentationtitre">Nombre de places :</span>
+        <input id="qte" type="number" min="1" max="100" value="1">
+        <input type="hidden" id="id" value="{{ manifs.getId }}">
+        <button id="ajout" class="addbouton">Ajouter au panier</button>
+        <span id="message"></span>
+    </div>
+</div>
+
+
+
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="{{ asset('js/general.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/article.js') }}"></script>
+{% endblock %}

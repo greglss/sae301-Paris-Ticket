@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Paris ticket - Panier{% endblock %}
+
+
+{% block body %}
+    <div class="fondnoir"></div>
+    <div class="box">
+        <h1>Mon Panier</h1>
+    </div>
+
+
+    <div class="flex-space-between achat">
+        <div class="margin-bouton">
+            <a class="eventsbouton" href="{{ path('app_manifs') }}">Continuer mes achats</a>
+        </div>
+    <div id="zone"></div>
+
+
+    <div class="text-center">
+        <p class="block-phone">Montant total : <span class="total"></span>€</p>
+    </div>
+    <div class="text-right margin-10px">
+        <!-- button id="delete" class="lien-intern" <span class="material-icons">delete</span></button -->
+    </div>
+    <div class="text-right margin-top-50px">
+        <p class="block-desktop margin-right-90px">Montant total : <span class="total2"></span>€</p>
+    </div>
+
+        {{ form_start(form, {'attr': {'action': path('app_search'), 'class':'commander' } }) }}
+        <input type="hidden" name="liste" id="liste">
+        <input class="donebouton" type="submit" value="Valider ma commande">
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript" src="{{ asset('js/panier.js') }}"></script>
+{% endblock %}
+

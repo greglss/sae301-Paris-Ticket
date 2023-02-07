@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon compte{% endblock %}
+
+{% block body %}
+    <div class="fondnoir"></div>
+    <div class="box">
+        <h1>Mon Compte</h1>
+    </div>
+    <div class="compteformbox">
+        <div class="group">
+    <div class="forminside">
+        <p class="labelmail"><strong>Prénom : </strong></p>
+            {{ user.prenom }}
+        <p class="labelmail"><strong>Nom : </strong></p>
+        {{ user.nom }}
+        <p class="labelmail"><strong>Email :</strong></p>
+        {{ user.email }}
+        </div>
+        <a class="" href="">Mon historique de commande</a>
+        </div>
+    </div>
+{% endblock %}

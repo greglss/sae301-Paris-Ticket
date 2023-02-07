@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Paris ticket - Salles{% endblock %}
+
+{% block body %}
+
+    <div class="fondnoir"></div>
+    <div class="box">
+        <h1>Liste des salles</h1>
+    </div>
+
+    <div class="cardlistlieu">
+
+        {% for Salles in salles  %}
+            <div class="cardlieu">
+                <img src="{{ asset("img/salles/#{Salles.getImg()}") }}" alt="{{Salles.getNom()}}"/>
+                <div class="textcard">
+                    <span class="titremanif">{{ Salles.getNom() }}</span>
+                    <span class="lieuspan"><i class="fa-solid fa-location-dot"></i>{{ Salles.adresse }}</span>
+                    <span class="capaspan">{{ Salles.getCapacite() }} places</span>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript" src="{{ asset('js/general.js') }}"></script>
+{% endblock %}

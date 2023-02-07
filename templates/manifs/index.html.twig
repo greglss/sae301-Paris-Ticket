@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Paris ticket - Evenements{% endblock %}
+
+{% block body %}
+<div class="fondnoir"></div>
+<div class="box">
+    <h1>Liste des évènements</h1>
+</div>
+
+
+    {{ form_start(form, {'attr': {'action': path('app_search')} }) }}
+    {{ form_widget(form.search, {'attr': {'placeholder': 'Recherchez ici'}}) }}
+    <span class="icon">
+	    <ion-icon name="search-outline" class="recherchebtn"></ion-icon>
+</span>
+    {{ form_end(form) }}
+
+
+
+
+    <div class="cardlist">
+
+        {% for Manifs in manifs %}
+        <div class="card">
+            <div class="genre">{{ Manifs.getGenre() }}</div></br>
+            <img src="{{ asset("img/#{Manifs.getAffiche()}") }}" alt="{{Manifs.getTitre}}"/>
+        <div class="textcard">
+            <span class="titremanif">{{ Manifs.getTitre() }}</span>
+            <span class="prixmanif">{{ Manifs.getTarif() }} €</span>
+        </div>
+            <div class="boutons">
+                <a class="eventsbouton" href="{{ path('manifs_show', {'id': Manifs.id}) }}">voir plus</a>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+
+
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript" src="{{ asset('js/general.js') }}"></script>
+{% endblock %}
